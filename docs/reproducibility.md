@@ -19,9 +19,20 @@ PyTorch wheel are distinct. Record both `nvcc --version` and
 
 `pytest -q` verifies the behavior of public loading, scaling, metric, and mask
 utilities. These tests do not train MAP-SSM and do not reproduce paper tables.
+The command below additionally exercises the released missingness interface on
+deterministic synthetic data:
+
+```bash
+python scripts/verify_protocol.py --seed 1 --input-length 720 \
+  --features 7 --gap-length 200
+```
+
+The printed mask digests are integrity checks for the released utility behavior;
+they are not experimental results.
 
 ## Release boundary
 
 This pre-release intentionally excludes model code, training orchestration,
 checkpoints, baseline integrations, and result-generation scripts. The complete
-experimental release is planned upon acceptance, consistent with the manuscript.
+experimental release is planned upon acceptance. The current public boundary is
+listed explicitly in `paper_code_mapping.md`.

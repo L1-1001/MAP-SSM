@@ -1,0 +1,25 @@
+model:
+  name: MAP-SSM
+  layers: 2
+  model_dimension: 128
+  state_dimension: 16
+  prototype_bank_size: 32
+  prototype_query_dimension: 32
+  dropout: 0.1
+
+prototype_bank:
+  initialization: xavier_uniform
+  optimization: end_to_end_adamw
+  exponential_moving_average: false
+  kmeans_warmup: false
+
+discretization:
+  method: zero_order_hold
+  minimum_step: 0.0001
+  maximum_step: 0.1
+  missing_step: 0.0001
+
+release_note: >-
+  This file records hyperparameters already reported in the paper. It is not an
+  executable model definition and does not imply that model code is included in
+  the current public pre-release.

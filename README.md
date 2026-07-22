@@ -1,14 +1,14 @@
 # MAP-SSM
 
-Official partial pre-release for **Missing-Aware Prototype-Guided State Space
-Model for Multivariate Time Series Forecasting**.
+Public pre-release for **Missing-Aware Prototype-Guided State Space Model for
+Multivariate Time Series Forecasting**.
 
 This repository currently contains the public data interface and experimental
 protocol utilities used by the project. It does **not** contain the MAP-SSM
 model, the training pipeline, checkpoints, or unpublished implementation
-details. The complete experimental source code, configuration files,
-preprocessing and mask-generation scripts, and seed records will be released
-upon acceptance, as stated in the manuscript.
+details. The complete experimental source code, remaining configuration files,
+baseline integrations, and result-generation scripts are planned for release
+upon acceptance.
 
 ## Included
 
@@ -17,7 +17,10 @@ upon acceptance, as stated in the manuscript.
 - block, point, and mixed missingness generation;
 - deterministic seed handling for Python, NumPy, PyTorch, and data loaders;
 - MSE and MAE metrics;
+- the model-level hyperparameters reported in the paper;
 - public experimental-protocol and dataset metadata;
+- a synthetic-data protocol self-check;
+- a paper-to-code map for the currently released components;
 - data validation and batch-inspection utilities;
 - unit tests for the released utilities.
 
@@ -69,7 +72,15 @@ python scripts/check_dataset.py --csv data/ETTh1.csv --timestamp-column date
 Inspect one forecasting batch without invoking a model:
 
 ```bash
-python scripts/inspect_batch.py --csv data/ETTh1.csv --timestamp-column date
+python scripts/inspect_batch.py --csv data/ETTh1.csv --timestamp-column date \
+  --split-ratios 0.6 0.2 0.2
+```
+
+Verify the released missingness protocol on deterministic synthetic data:
+
+```bash
+python scripts/verify_protocol.py --seed 1 --input-length 720 \
+  --features 7 --gap-length 200
 ```
 
 Run the released tests:
@@ -81,9 +92,12 @@ pytest -q
 ## Scope
 
 The utilities in this pre-release document the public experimental interface;
-they are not a complete reproduction package. In particular, there is no
-training command in the current release. Please do not infer model performance
-from the utility tests.
+they are not a complete reproduction package. In particular, the current
+release has no model implementation, training command, checkpoint, baseline
+integration, or result-generation script. The protocol self-check validates
+only the released data and mask interfaces and does not reproduce a paper
+table or establish model performance. See `docs/paper_code_mapping.md` for the
+exact release boundary.
 
 ## Citation
 
