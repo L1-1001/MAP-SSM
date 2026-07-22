@@ -1,0 +1,35 @@
+forecasting:
+  standard_input_length: 96
+  robustness_input_length: 720
+  prediction_lengths: [96, 192, 336, 720]
+  test_stride: 1
+  target_masking: false
+
+training_missingness:
+  block_length_min: 10
+  block_length_max:
+    96: 48
+    720: 250
+  point_missing_rate_uniform: [0.1, 0.3]
+  resample_each_epoch: true
+
+validation_missingness:
+  final_block_length: 50
+  remaining_point_missing_rate: 0.15
+  fixed_per_seed: true
+
+optimization:
+  optimizer: AdamW
+  initial_learning_rate: 0.001
+  weight_decay: 0.0001
+  batch_size: 32
+  scheduler: CosineAnnealingLR
+  linear_warmup_epochs: 1
+  maximum_epochs: 50
+  early_stopping_patience: 3
+  training_loss: MSE
+  gradient_norm_clip: 1.0
+  mixed_precision: true
+
+matched_accuracy_seeds: [1, 2, 3]
+profiling_seeds: [2024, 2025, 2026]

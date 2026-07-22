@@ -1,0 +1,6 @@
+name: ETTm1
+local_file: data/ETTm1.csv
+timestamp_column: date
+sampling_interval: 15 minutes
+split_ratios: [0.6, 0.2, 0.2]
+source_page: https://github.com/zhouhaoyi/ETDataset

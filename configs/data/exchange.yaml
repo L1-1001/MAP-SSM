@@ -1,0 +1,6 @@
+name: Exchange
+local_file: data/exchange_rate.csv
+timestamp_column: date
+sampling_interval: 1 day
+split_ratios: [0.7, 0.1, 0.2]
+source_page: https://github.com/laiguokun/multivariate-time-series-data

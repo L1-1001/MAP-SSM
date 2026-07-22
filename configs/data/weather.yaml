@@ -1,0 +1,6 @@
+name: Weather
+local_file: data/weather.csv
+timestamp_column: date
+sampling_interval: 10 minutes
+split_ratios: [0.7, 0.1, 0.2]
+source_page: https://www.bgc-jena.mpg.de/wetter/

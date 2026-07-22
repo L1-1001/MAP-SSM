@@ -1,0 +1,11 @@
+name: map-ssm-public
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy=1.24.4
+  - pandas=2.0.3
+  - pyyaml=6.0.1
+  - pytorch=2.0.1
+  - pytest=7.4.4

@@ -1,0 +1,6 @@
+name: Electricity
+local_file: data/electricity.csv
+timestamp_column: date
+sampling_interval: 1 hour
+split_ratios: [0.7, 0.1, 0.2]
+source_page: https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014

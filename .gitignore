@@ -1,0 +1,33 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Datasets are obtained separately and must never be committed.
+/data/
+/datasets/
+*.parquet
+*.feather
+
+# Model artifacts and experiment outputs are outside this partial release.
+checkpoints/
+outputs/
+results/
+runs/
+wandb/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# Local configuration and credentials.
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
